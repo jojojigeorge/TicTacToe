@@ -35,11 +35,11 @@ const Board = ({ xIsNext, square, onPlay }) => {
   // const [xIsNext, setXisNext] = useState(true)
   // const [square, setSquare] = useState(Array(9).fill(null))
   // const square=square
-  if (xIsNext === 'reset') {
-    // setStatus('Next player is X')
-    winner = null
-    xIsNext = true
-  }
+  // if (xIsNext === 'reset') {
+  //   // setStatus('Next player is X')
+  //   winner = null
+  //   xIsNext = true
+  // }
   const squareClick = (i) => {
     const nextSquares = square.slice();
     if (square[i] === null && winner === null) {
@@ -109,18 +109,18 @@ function Game() {
     setXisNext(!xIsNext)
     console.log('history', history)
   }
-  const resetHistory = () => {
+  const resetHistory = () => {                //--------------------------Reset game to initial state
     var newSquare = [Array(9).fill(null)]
     // console.log(newSquare)
     setHistory(newSquare)
-    setXisNext('reset')
+    setXisNext(true)
     // setStatus('Player X can start the game')
-    // winner = null
+    winner = null
   }
   const moves = history.map((square, move) => {
     let description
-    const jumpTo=(index)=>{
-      // console.log(history,'------------')
+    const jumpTo=(index)=>{//--------------------------Jump to specific previous step
+      console.log('after clicking jumpto',history)
       // currentSquares=history[index]
       let newHistory=history.slice(0,index+1)
       // console.log('newHistory',newHistory)
