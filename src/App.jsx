@@ -120,11 +120,14 @@ function Game() {
   const moves = history.map((square, move) => {
     let description
     const jumpTo=(index)=>{
-      console.log(history,'------------')
+      // console.log(history,'------------')
       // currentSquares=history[index]
       let newHistory=history.slice(0,index+1)
-      console.log('newHistory',newHistory)
+      // console.log('newHistory',newHistory)
       setHistory(newHistory)
+      console.log(index%2)
+      setXisNext(index%2===0)
+      winner=null
     }
     if (move > 0) {
       description = 'Go to step #' + move
